@@ -1,6 +1,7 @@
 {
   "name": "marketplace",
-  "proxy" :"http://localhost:4000",
+  
+   "proxy": "https://marketplace-new-84mw.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -29,14 +29,7 @@ connectDb();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(cors(
-{
-  origin: ["https://deploy-mern-1whq.vercel.app"] , 
-  methods : ["POST" , "GET"],
-  credentials:true
-}
-
-));
+app.use(cors());
 // app.use(formidableMiddleware());
 // app.use(bodyParser.json());
 // app.use(bodyParser.json({ limit: '50mb' }));
