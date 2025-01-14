@@ -1,0 +1,197 @@
+.details-container {
+  display: flex;
+  align-items: flex-start; /* Align items at the top */
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.photos-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 400px;
+  max-height: 500px; /* Restrict the height of the image */
+  object-fit: contain; /* Ensures the image maintains its aspect ratio */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.thumbnail-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.details-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-end; /* Ensure content starts at the top */
+  /* align-items: centers; */
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: auto; /* Allow the height to be determined by content */
+  max-height: 600px;
+  overflow-y: auto; /* Add scroll if content exceeds max height */
+ margin-top: 50px;
+  
+}
+
+.product-name {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.product-description {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+  overflow-y: auto;
+  height: 246px;
+}
+
+.product-price,
+.product-status {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.purchase-btn,
+.chat-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.purchase-btn:hover,
+.chat-btn:hover {
+  background: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .details-container {
+    flex-direction: column;
+    
+  }
+  .details-section {
+    width: 100%; /* Make the details section take full width */
+  }
+
+  .thumbnail-row {
+    flex-wrap: wrap;
+  }
+}
+
+
+
+
+.chat-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chat-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.chat-btn:active {
+  background-color: #003f8a;
+  transform: scale(0.95);
+}
+
+.chat-btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.5);
+}
+
+
+
+
+
+
+/* Button Row Container */
+.button-row {
+  display: flex;
+  justify-content: center; /* Align buttons to the left */
+  gap: 10px; /* Space between buttons */
+  margin-top: 25px; /* Space from the above elements */
+
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+}
+
+/* Update Button */
+.update-btn {
+  background-color: #007bff; /* Blue color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update-btn:hover {
+  background-color: #0056b3; /* Darker blue */
+}
+
+
+

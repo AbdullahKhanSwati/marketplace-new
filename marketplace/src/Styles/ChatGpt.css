@@ -1,0 +1,152 @@
+.chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 400px;
+    height: 500px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header Section */
+  .chat-header {
+    background-color: black; /* Changed to black */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  /* Chat History */
+  .chat-history {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: black; /* Changed to black */
+  }
+  
+  /* Loading Text */
+  .loading-text {
+    text-align: center;
+    color: gray;
+    font-size: 0.9rem;
+    margin: 10px 0;
+  }
+  
+  /* Chat Messages */
+  .chat-message {
+    margin: 10px 0;
+    max-width: 80%;
+    padding: 8px;
+    border-radius: 8px;
+    word-wrap: break-word;
+  }
+  
+  .chat-message.user {
+    background-color: lightgreen; /* Light green background */
+    border: 1px solid #006400; /* Green border */
+    align-self: flex-end;
+    color: black;
+  }
+  
+  .chat-message.bot {
+    background-color: #f1f1f1; /* Light gray background */
+    border: 1px solid gray; /* Gray border */
+    align-self: flex-start;
+    color: black;
+  }
+  
+  /* Input Area */
+  .chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #333;
+    background-color: black; /* Changed to black */
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: #222; /* Darker input background */
+    color: white;
+  }
+  
+  .chat-input input::placeholder {
+    color: gray;
+  }
+  
+  .chat-input button {
+    margin-left: 5px;
+    padding: 8px 15px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .chat-input button:hover {
+    background-color: lightgray;
+  }
+  
+  .chat-input button:disabled {
+    background-color: darkgray;
+    cursor: not-allowed;
+  }
+
+
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .close-btn:hover {
+    color: red;
+    transform: scale(1.1);
+  }
+  
+  .close-btn:hover {
+    color: red;
+    transform: scale(1.1);
+  }
+  
+  /* Adjust Chat Header for Close Button */
+  .chat-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 768px) {
+    .chat-container {
+      width: 90%; /* Reduce width */
+      left: 5%;  /* Add margin from the left */
+      right: auto; /* Remove right positioning */
+    }
+  }
+  
+  
