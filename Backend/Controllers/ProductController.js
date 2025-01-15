@@ -556,14 +556,13 @@ const  getProductPhotosController = async (req, res) => {
     const product = await Product.findById(req.params.pid).select({
       photo: { $slice: 1 } // Select only the first photo
     });
-  
-    if (product?.photo?.[0]?.data) {
+  console.log("inside getting image controller");
+    if (product?.photo[0]?.data) {
       // data: photo.data.toString('base64'), 
      
-     const image = product.photo[0].data.toString('base64');
-
-      res.set("Content-Type", product.photo[0].contentType);
-      return res.status(200).send(`data:${product.photo[0].contentType};base64,${image}`);
+     console.log("image data is ",product.photo[0].data);
+     res.set("Content-Type", product.photo[0].contentType); // Set the appropriate content type
+     return res.status(200).send(product.photo[0].data);
     } else {
       return res.status(404).send({
         success: false,
