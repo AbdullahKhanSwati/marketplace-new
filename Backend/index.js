@@ -30,7 +30,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(cors({
-  origin: "https://bejewelled-manatee-a97a12.netlify.app/", // Replace with your Netlify domain
+  origin: "https://bejewelled-manatee-a97a12.netlify.app", // Replace with your Netlify domain
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
