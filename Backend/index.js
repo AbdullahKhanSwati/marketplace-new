@@ -30,7 +30,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(cors({
-  origin: "http://localhost:3000", // Replace with your Netlify domain
+  origin: "", // Replace with your Netlify domain
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
