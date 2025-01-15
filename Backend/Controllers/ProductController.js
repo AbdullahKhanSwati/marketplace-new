@@ -558,8 +558,12 @@ const  getProductPhotosController = async (req, res) => {
     });
   
     if (product?.photo?.[0]?.data) {
+      // data: photo.data.toString('base64'), 
+     
+    //  image.data = product.photo[0].data.toString('base64');
+
       res.set("Content-Type", product.photo[0].contentType);
-      return res.status(200).send(`data:${product.photo[0].contentType};base64,${product.photo[0].data.toString('base64')}`);
+      return res.status(200).send(`${product.photo[0].data.toString('base64')}`);
     } else {
       return res.status(404).send({
         success: false,
