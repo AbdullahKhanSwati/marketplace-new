@@ -29,13 +29,11 @@ connectDb();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(cors(
-  {
-    origin : ["https://marketplace-new-jqpo.vercel.app/"],
-    methods: ["POST","GET","PUT","PATCH"],
-    credentials:true
-  }
-));
+app.use(cors({
+  origin: "http://localhost:3000", // Replace with your Netlify domain
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 // app.use(formidableMiddleware());
 // app.use(bodyParser.json());
 // app.use(bodyParser.json({ limit: '50mb' }));
