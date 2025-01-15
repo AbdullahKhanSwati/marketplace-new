@@ -29,11 +29,39 @@ connectDb();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(cors({
-  origin: "https://moonlit-truffle-c14f8d.netlify.app", // Replace with your Netlify domain
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  credentials: true
-}));
+// app.use(cors({
+//   origin: "https://moonlit-truffle-c14f8d.netlify.app", // Replace with your Netlify domain
+//   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+//   credentials: true
+// }));
+
+
+
+const allowedOrigins = [
+  "http://localhost:3000", // For local development
+  "https://moonlit-truffle-c14f8d.netlify.app", // Netlify deployment
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials: true,
+  })
+);
+
+
+
+
+
+
+
 // app.use(formidableMiddleware());
 // app.use(bodyParser.json());
 // app.use(bodyParser.json({ limit: '50mb' }));
