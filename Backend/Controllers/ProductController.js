@@ -559,7 +559,7 @@ const  getProductPhotosController = async (req, res) => {
   
     if (product?.photo?.[0]?.data) {
       res.set("Content-Type", product.photo[0].contentType);
-      return res.status(200).send(product.photo[0].data);
+      return res.status(200).send(`data:${product.photo[0].contentType};base64,${product.photo[0].data.toString('base64')}`);
     } else {
       return res.status(404).send({
         success: false,
