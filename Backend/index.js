@@ -31,7 +31,7 @@ const __dirname = path.dirname(__filename);
 
 app.use(cors({
   origin: "https://moonlit-truffle-c14f8d.netlify.app", // Replace with your Netlify domain
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true
 }));
 // app.use(formidableMiddleware());
