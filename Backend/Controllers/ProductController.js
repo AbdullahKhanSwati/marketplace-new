@@ -93,7 +93,7 @@ import { v2 as cloudinary } from "cloudinary";
 
 const addProductController = async (req, res) => {
     try {
-        const { name, description = " ", price } = req.body;
+        const { name, description = "please write description from below chatbot!", price } = req.body;
         const photo = req.files;
         console.log( name,description,price);
         console.log("Uploaded File: ", req.files);
