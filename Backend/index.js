@@ -39,7 +39,7 @@ const __dirname = path.dirname(__filename);
 
 const allowedOrigins = [
   "http://localhost:3000", // For local development
-  "https://famous-snickerdoodle-aafe3f.netlify.app", // Netlify deployment
+  "spiffy-torte-fd7d6c.netlify.app", // Netlify deployment
 ];
 
 // app.use(

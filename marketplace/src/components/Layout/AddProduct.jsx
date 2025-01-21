@@ -201,9 +201,11 @@ const AddProduct = () => {
         console.log("FormData name: ", formData.name);
         console.log("FormData photo: ", formData.photo);
 
-
+      if(!description){
+        formData.append("description", "please write description from below chatbot");
+      }
         const { data } = await axios.post(
-            " /api/v1/product/add-product",
+            `https://marketplace-new-84mw.vercel.app/api/v1/product/add-product`,
             formData,
             {
                 headers: {
