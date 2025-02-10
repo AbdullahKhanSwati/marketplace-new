@@ -21,7 +21,7 @@ const SearchResult = () => {
   const markAsAvailable = async (productId) => {
         try {
           const { data } = await axios.patch(
-            ` /api/v1/product/Markavailable/${productId}`,
+            `https://marketplace-new-84mw.vercel.app/api/v1/product/Markavailable/${productId}`,
             { status: "available" }
           );
           if (data?.success) {
@@ -39,7 +39,7 @@ const SearchResult = () => {
       const markAsSold = async (productId) => {
         try {
           const { data } = await axios.patch(
-            ` /api/v1/product/Marksold/${productId}`,
+            `https://marketplace-new-84mw.vercel.app/api/v1/product/Marksold/${productId}`,
             { status: "sold" }
           );
           if (data?.success) {
@@ -58,6 +58,7 @@ const SearchResult = () => {
   
   return (
     <Layout>
+      <div style={{marginTop:"4.5rem"}}></div>
     <div className="card-container">
       {results?.resutls?.length > 0 ? ( // Use results.resutls to access the array
         results.resutls.map((product) => (
@@ -73,7 +74,7 @@ const SearchResult = () => {
               
             </div>
             <img
-              src={` /api/v1/product/getPhoto/${product._id}`}
+              src={`https://marketplace-new-84mw.vercel.app/api/v1/product/getPhoto/${product._id}`}
               alt={product.name}
               className="card-img"
             />
@@ -144,7 +145,7 @@ export default SearchResult;
 //   const markAsAvailable = async (productId) => {
 //     try {
 //       const { data } = await axios.patch(
-//         ` /api/v1/product/Markavailable/${productId}`,
+//         ` https://marketplace-new-84mw.vercel.app /api/v1/product/Markavailable/${productId}`,
 //         { status: "available" }
 //       );
 //       if (data?.success) {
@@ -162,7 +163,7 @@ export default SearchResult;
 //   const markAsSold = async (productId) => {
 //     try {
 //       const { data } = await axios.patch(
-//         ` /api/v1/product/Marksold/${productId}`,
+//         ` https://marketplace-new-84mw.vercel.app /api/v1/product/Marksold/${productId}`,
 //         { status: "sold" }
 //       );
 //       if (data?.success) {
@@ -197,7 +198,7 @@ export default SearchResult;
 //                 {product.status === "available" ? "Available" : "Sold"}
 //               </div>
 //               <img
-//                 src={` /api/v1/product/photo/${product._id}`}
+//                 src={` https://marketplace-new-84mw.vercel.app /api/v1/product/photo/${product._id}`}
 //                 alt={product.name}
 //                 className="card-img"
 //               />

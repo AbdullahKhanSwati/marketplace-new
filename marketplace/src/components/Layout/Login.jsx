@@ -21,7 +21,7 @@ const handleSubmit = async (e)=>{
     console.log(process.env.REACT_APP_API);
 try {
     
-    const res = await axios.post(` /api/v1/auth/login`,
+    const res = await axios.post(`https://marketplace-new-84mw.vercel.app/api/v1/auth/login`,
           {email,password},
           {
             headers: {

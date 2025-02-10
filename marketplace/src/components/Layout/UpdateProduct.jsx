@@ -43,7 +43,7 @@ const UpdateProduct = () => {
       }
 
       const { data } = await axios.put(
-        ` /api/v1/product/update-product/${id}`,
+        `https://marketplace-new-84mw.vercel.app/api/v1/product/update-product/${id}`,
         formData,
         {
           headers: {
@@ -71,7 +71,7 @@ const UpdateProduct = () => {
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
-        ` /api/v1/product/single-product/${id}`
+        `https://marketplace-new-84mw.vercel.app/api/v1/product/single-product/${id}`
       );
       if (data.success) {
         // const photos = data.photo.map((photo) =>

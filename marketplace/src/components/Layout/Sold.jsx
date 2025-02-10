@@ -19,7 +19,7 @@ const [loadingCheck, setLoadingCheck] = useState(false);
       setLoadingCheck(true);
       const { data } = await axios.get(
 
-        ` /api/v1/product/sold-list/${page}`
+        `https://marketplace-new-84mw.vercel.app/api/v1/product/sold-list/${page}`
       );
       if (data?.success) {
         console.log("Fetched products:", data.products); // Log the API response
@@ -36,7 +36,7 @@ const [loadingCheck, setLoadingCheck] = useState(false);
     try {
       setLoadingBtn(true);
       const { data } = await axios.get(
-        ` /api/v1/product/sold-list/${page}`
+        `https://marketplace-new-84mw.vercel.app/api/v1/product/sold-list/${page}`
       );
       if (data?.success) {
         setProducts(data.products); // Update state with products
@@ -49,7 +49,7 @@ const [loadingCheck, setLoadingCheck] = useState(false);
   };
   const getTotal = async () => {
     try {
-      const { data } = await axios.get(" /api/v1/product/sold-product-count");
+      const { data } = await axios.get(`https://marketplace-new-84mw.vercel.app/api/v1/product/sold-product-count`);
       if (data.success) {
         
         setTotal(data?.totalProducts);
@@ -63,7 +63,7 @@ const [loadingCheck, setLoadingCheck] = useState(false);
   const markAsAvailable = async (productId) => {
     try {
       const { data } = await axios.patch(
-        ` /api/v1/product/Markavailable/${productId}`,
+        `https://marketplace-new-84mw.vercel.app/api/v1/product/Markavailable/${productId}`,
         { status: "available" }
       );
       if (data?.success) {
@@ -107,6 +107,7 @@ const [loadingCheck, setLoadingCheck] = useState(false);
               <Loading />
         }
 
+<div style={{marginTop:"4.5rem"}}>
       <div className="card-container">
   { !loadingCheck &&  products?.map((product) => (
     <div className="card" key={product._id}>
@@ -116,7 +117,7 @@ const [loadingCheck, setLoadingCheck] = useState(false);
       <img
         src={
          
-            ` /api/v1/product/getPhoto/${product._id}` // Fetch image from backend
+            `https://marketplace-new-84mw.vercel.app/api/v1/product/getPhoto/${product._id}` // Fetch image from backend
            
         }
         alt={product.name}
@@ -167,7 +168,7 @@ const [loadingCheck, setLoadingCheck] = useState(false);
               </button>
             )}
           </div>
-
+          </div>
     </Layout>
   );
 };

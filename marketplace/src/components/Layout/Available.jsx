@@ -19,7 +19,7 @@
 //   const getProducts = async () => {
 //     try {
 //       const { data } = await axios.get(
-//         ` /api/v1/product/available`
+//         ` https://marketplace-new-84mw.vercel.app /api/v1/product/available`
 //       );
 //       if (data?.success) {
 //         setProducts(data.availableProducts); // Update state with products
@@ -32,7 +32,7 @@
 //   const markAsSold = async (productId) => {
 //     try {
 //       const { data } = await axios.patch(
-//         ` /api/v1/product/Marksold/${productId}`,
+//         ` https://marketplace-new-84mw.vercel.app /api/v1/product/Marksold/${productId}`,
 //         { status: "sold" }
 //       );
 //       if (data?.success) {
@@ -51,7 +51,7 @@
 //   };
 //   const GettingSinglePhoto = async(productId) =>{
 //     try {
-//       const {data} = await axios.get(` /api/v1/product/photo/${productId}`);
+//       const {data} = await axios.get(` https://marketplace-new-84mw.vercel.app /api/v1/product/photo/${productId}`);
 //       if(data.success){
 
 //         return data;
@@ -80,8 +80,8 @@
 //       <img
 
 //         // src={`data:image/jpeg;base64,${product.photos)}`}
-//       //  src="https://res.cloudinary.com/df60ylf3g/image/upload/v1736083494/products/oyymq9grzjf6iglycst3.png"
-//         //  /api/v1/product/photo/
+//       //  src="httpss://res.cloudinary.com/df60ylf3g/image/upload/v1736083494/products/oyymq9grzjf6iglycst3.png"
+//         //  https://marketplace-new-84mw.vercel.app /api/v1/product/photo/
 //         src={`data:image/jpeg;base64,${product.photos[0]}`}
 //         alt={product.name}
 //         className="card-img"
@@ -168,10 +168,11 @@ const Available = () => {
     try {
       setLoadingCheck(true);
       const { data } = await axios.get(
-        `/api/v1/product/available-list/${page}`
+        `https://marketplace-new-84mw.vercel.app/api/v1/product/available-list/${page}`
       );
       if (data?.success) {
         setLoadingCheck(false)
+        console.log("this is storing locally");
         setProducts(data.products); // Update state with products
         // console.log(products);
 
@@ -190,7 +191,7 @@ const Available = () => {
     try {
       setLoadingBtn(true);
       const { data } = await axios.get(
-        ` /api/v1/product/available-list/${page}`
+        `https://marketplace-new-84mw.vercel.app/api/v1/product/available-list/${page}`
       );
       if (data?.success) {
         setProducts(data.products); // Update state with products
@@ -206,15 +207,12 @@ const Available = () => {
   const markAsSold = async (productId) => {
     try {
       const { data } = await axios.patch(
-        ` /api/v1/product/Marksold/${productId}`,
+        `https://marketplace-new-84mw.vercel.app/api/v1/product/Marksold/${productId}`,
         { status: "sold" }
       );
       if (data?.success) {
-        // Update the local state to reflect the status change
-        setProducts((prevProducts) =>
-          prevProducts.filter((product) => product._id !== productId)
-        );
-        toast.success(data.message)
+        toast.success(data.message);
+   
       } else {
         alert("Failed to update product status.");
       }
@@ -225,7 +223,7 @@ const Available = () => {
   };
   const GettingSinglePhoto = async (productId) => {
     try {
-      const data = await axios.get(` /api/v1/product/getPhoto/${productId}`);
+      const data = await axios.get(`https://marketplace-new-84mw.vercel.app/api/v1/product/getPhoto/${productId}`);
       if (data.success) {
         console.log("image is ", data);
         return data;
@@ -245,7 +243,7 @@ const Available = () => {
 
   const getTotal = async () => {
     try {
-      const { data } = await axios.get(" /api/v1/product/product-count");
+      const { data } = await axios.get(`https://marketplace-new-84mw.vercel.app/api/v1/product/product-count`);
       if (data.success) {
 
         setTotal(data?.totalProducts);
@@ -279,8 +277,9 @@ const Available = () => {
         {loadingCheck && 
               <Loading />
         }
-         
 
+         
+     <div className="mt-32" style={{marginTop:"4.5rem"}}>
           
         
 
@@ -296,7 +295,7 @@ const Available = () => {
               <img
 
                
-                src={`/api/v1/product/getPhoto/${product._id}`}
+            src={`https://marketplace-new-84mw.vercel.app/api/v1/product/getPhoto/${product._id}`}
                 // src=""
                 alt={product.name}
                 className="card-img"
@@ -350,7 +349,7 @@ const Available = () => {
             </button>
           )}
         </div>
-
+        </div>
       </>
     </Layout>
   );
@@ -381,7 +380,7 @@ export default Available;
 //   const getProducts = async () => {
 //     try {
 //       const { data } = await axios.get(
-//         ` /api/v1/product/available`
+//         ` https://marketplace-new-84mw.vercel.app /api/v1/product/available`
 //       );
 //       if (data?.success) {
 //         // Convert buffer data to Base64 string for all products
@@ -404,7 +403,7 @@ export default Available;
 //   const markAsSold = async (productId) => {
 //     try {
 //       const { data } = await axios.patch(
-//         ` /api/v1/product/Marksold/${productId}`,
+//         ` https://marketplace-new-84mw.vercel.app /api/v1/product/Marksold/${productId}`,
 //         { status: "sold" }
 //       );
 //       if (data?.success) {

@@ -21,7 +21,7 @@ const navigate = useNavigate();
     const fetchProductDetails = async () => {
       try {
         setLoadingCheck(true);
-        const { data } = await axios.get(` /api/v1/product/single-product/${id}`);
+        const { data } = await axios.get(`https://marketplace-new-84mw.vercel.app/api/v1/product/single-product/${id}`);
         setProduct(data.product);
         console.log("data in sold is", data)
         setMainImage(data.product.photos[0]?.base64 || "");
@@ -33,7 +33,7 @@ const navigate = useNavigate();
 
     const gettingAllPhotos = async ()=>{
       try {
-        const photo = await axios.get(` /api/v1/product/all-photos/${id}`);
+        const photo = await axios.get(`https://marketplace-new-84mw.vercel.app/api/v1/product/all-photos/${id}`);
         if (photo?.data?.photo) {
           setAllPhotos(photo.data.photo);
           console.log("All images:", photo.data.photo);
@@ -65,7 +65,7 @@ const navigate = useNavigate();
       const userConfirmed = window.confirm("Are you sure you want to delete this product?");
       if (!userConfirmed) return;
       const { data } = await axios.delete(
-        ` /api/v1/product/delete-product/${id}`
+        `https://marketplace-new-84mw.vercel.app/api/v1/product/delete-product/${id}`
       );
      if(data?.success){
       toast.success("Product Deleted Succesfully");
@@ -87,7 +87,7 @@ const navigate = useNavigate();
 
 
 <img
-      src={` /api/v1/product/getPhoto/${product._id}`}
+      src={`https://marketplace-new-84mw.vercel.app/api/v1/product/getPhoto/${product._id}`}
       alt="Main Product"
       className="main-image"
     />
