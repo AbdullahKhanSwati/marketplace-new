@@ -891,7 +891,7 @@ const productListController = async (req, res) => {
 
 const soldListController = async (req, res) => {
   try {
-    const perPage = 10;
+    const perPage = 12;
     const page = req.params.page ? req.params.page : 1;
     
     const products = await Product
