@@ -40,6 +40,7 @@ const __dirname = path.dirname(__filename);
 const allowedOrigins = [
   "http://localhost:3000", // For local development
   "https://marketplace-new-jqpo.vercel.app",
+  "https://www.mxoused.com",
   "https://aquamarine-quokka-7fff13.netlify.app", // Netlify deployment
 ];
 
