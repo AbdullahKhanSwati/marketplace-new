@@ -35,8 +35,7 @@ const productSchema = new mongoose.Schema(
 );
 
 productSchema.index({ status: 1, createdAt: -1 });
-productSchema.index({ photo: 1 });
-productSchema.index({ _id: 1 });
+
 
 
 const Product = mongoose.model("Product", productSchema);
