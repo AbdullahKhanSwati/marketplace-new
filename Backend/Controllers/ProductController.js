@@ -916,4 +916,38 @@ const soldListController = async (req, res) => {
   }
 };
 
-export {addProductController,allProductsCOntroller,singleProduct,updateProduct,deleteProduct,getProductPhotosController,getSinglePhoto,availableProductsController,soldProductsController,handleChatgpt,markAsSold,markAsAvailable,searchProductController,productCountController,productListController,soldListController,soldproductCountController,getAllProductPhotos,singleProductForUpdate}
+
+
+const deleteOldSoldProducts = async (req, res) => {
+  try {
+    const fortyDaysAgo = new Date();
+    fortyDaysAgo.setDate(fortyDaysAgo.getDate() - 40); // Get the date 40 days ago
+
+    const result = await Product.deleteMany({
+      status: "sold",
+      createdAt: { $lt: fortyDaysAgo } // Find records older than 40 days
+    });
+
+    if (result.deletedCount === 0) {
+      return res.status(404).send({
+        success: false,
+        message: "No matching products found for deletion",
+        result
+      });
+    }
+
+    return res.status(200).send({
+      success: true,
+      message: `${result.deletedCount} sold products older than 40 days were deleted successfully`,
+    });
+
+  } catch (error) {
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error in deleting products!",
+    });
+  }
+};
+
+export {addProductController,allProductsCOntroller,singleProduct,updateProduct,deleteProduct,getProductPhotosController,getSinglePhoto,availableProductsController,soldProductsController,handleChatgpt,markAsSold,markAsAvailable,searchProductController,productCountController,productListController,soldListController,soldproductCountController,getAllProductPhotos,singleProductForUpdate,deleteOldSoldProducts}

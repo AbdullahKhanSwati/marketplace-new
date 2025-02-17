@@ -2,7 +2,7 @@ import express from "express";
 import Product from "../Models/ProductModel.js";
 import multer from "multer";
 import { v2 as cloudinary } from "cloudinary";
-import {addProductController,allProductsCOntroller,singleProduct,updateProduct,deleteProduct,getProductPhotosController,getSinglePhoto,availableProductsController,soldProductsController,handleChatgpt,markAsSold,markAsAvailable,searchProductController,productCountController,productListController,soldListController,soldproductCountController, getAllProductPhotos, singleProductForUpdate} from "../Controllers/ProductController.js"
+import {addProductController,allProductsCOntroller,singleProduct,updateProduct,deleteProduct,getProductPhotosController,getSinglePhoto,availableProductsController,soldProductsController,handleChatgpt,markAsSold,markAsAvailable,searchProductController,productCountController,productListController,soldListController,soldproductCountController, getAllProductPhotos, singleProductForUpdate, deleteOldSoldProducts} from "../Controllers/ProductController.js"
 import { upload } from "../Middlewares/Multer.js";
 
 import formidableMiddleware from "express-formidable"
@@ -118,6 +118,7 @@ router.get("/sold",soldProductsController)
 
 router.put("/update-product/:pid",upload.array("photo"),updateProduct)
 router.delete("/delete-product/:pid",deleteProduct);
+router.delete('/delete-many',deleteOldSoldProducts);
 router.get("/product-count",productCountController);
 router.get("/sold-product-count",soldproductCountController);
 
