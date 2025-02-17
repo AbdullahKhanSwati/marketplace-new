@@ -932,6 +932,7 @@ const deleteOldSoldProducts = async (req, res) => {
       return res.status(404).send({
         success: false,
         message: "No matching products found for deletion",
+        fortyDaysAgo
         
       });
     }
