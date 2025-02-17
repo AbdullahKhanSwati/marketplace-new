@@ -932,13 +932,14 @@ const deleteOldSoldProducts = async (req, res) => {
       return res.status(404).send({
         success: false,
         message: "No matching products found for deletion",
-        result
+        
       });
     }
 
     return res.status(200).send({
       success: true,
       message: `${result.deletedCount} sold products older than 40 days were deleted successfully`,
+      result
     });
 
   } catch (error) {
