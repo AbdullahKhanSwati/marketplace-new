@@ -921,7 +921,7 @@ const soldListController = async (req, res) => {
 const deleteOldSoldProducts = async (req, res) => {
   try {
     const fortyDaysAgo = new Date();
-    fortyDaysAgo.setDate(fortyDaysAgo.getDate() - 10); // Get the date 40 days ago
+    fortyDaysAgo.setDate(fortyDaysAgo.getDate() - 5); // Get the date 40 days ago
 
     const result = await Product.deleteMany({
       status: "sold",
