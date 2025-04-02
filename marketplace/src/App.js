@@ -16,6 +16,7 @@ import PageNotFound from "./components/Layout/PageNotFound.jsx";
 import Contact from "./components/Layout/Contact.jsx";
 import Services from "./components/Layout/Services.jsx";
 import AboutUs from "./components/Layout/AboutUs.jsx";
+import Khan321 from "./components/Layout/Khan321.jsx";
 // import Navbar from "./Navbar/Navbar";
 // import Home from "./pages/Home";
 // import News from "./pages/News";
@@ -29,6 +30,9 @@ const App = () => {
      
        <Routes>
          <Route path="/" element={<Available />} />
+         <Route path="/khan321" element={<Khan321 />} />
+
+
          <Route path="/search-result" element={<SearchResult />} />
          <Route path='*'  element={<PageNotFound />} />
 

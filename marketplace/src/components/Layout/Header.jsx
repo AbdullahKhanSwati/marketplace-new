@@ -172,7 +172,7 @@ import { useAuth } from '../../context/Auth.js';
 import { useSearch } from '../../context/search.js';
 import axios from 'axios';
 import { toast } from "react-hot-toast"
-
+// import {} from "../../../public/des.png"
 const Header = () => {
   const navigate = useNavigate();
   const [values, setValues] = useSearch();
@@ -213,7 +213,9 @@ const Header = () => {
           className="navbar-brand nav__logo"
           style={{ display: "inline", width: "264px", textAlign: "center" }}
         >
-          <GiShoppingBag style={{ marginBottom: "-22px" }} /> <span style={{ color: "#f60838" }}> MXO </span>Used-Products
+          <GiShoppingBag style={{ marginBottom: "-22px" }} />
+          {/* <img  style={{ marginBottom: "-22px" }} src='./des.png' /> */}
+           <span style={{ color: "#f60838" }}> MXO </span>Used-Products
         </Link>
         <button
           className="navbar-toggler"

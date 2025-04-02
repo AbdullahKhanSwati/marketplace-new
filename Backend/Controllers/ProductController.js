@@ -937,9 +937,12 @@ const deleteOldSoldProducts = async (req, res) => {
       });
     }
 
+
+    
+
     return res.status(200).send({
       success: true,
-      message: `${result.deletedCount} sold products older than 40 days were deleted successfully`,
+      message: `${result.deletedCount} sold product deleted successfully`,
       result
     });
 
@@ -952,4 +955,40 @@ const deleteOldSoldProducts = async (req, res) => {
   }
 };
 
-export {addProductController,allProductsCOntroller,singleProduct,updateProduct,deleteProduct,getProductPhotosController,getSinglePhoto,availableProductsController,soldProductsController,handleChatgpt,markAsSold,markAsAvailable,searchProductController,productCountController,productListController,soldListController,soldproductCountController,getAllProductPhotos,singleProductForUpdate,deleteOldSoldProducts}
+
+
+
+const deleteAllProducts = async (req, res) => {
+  try {
+   
+    
+    const result = await Product.deleteMany({});
+
+    if (result.deletedCount === 0) {
+      return res.status(404).send({
+        success: false,
+        message: "No matching products found for deletion",
+       
+        
+      });
+    }
+
+
+    
+
+    return res.status(200).send({
+      success: true,
+      message: `all products deleted successfully`,
+      
+    });
+
+  } catch (error) {
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error in deleting products!",
+    });
+  }
+};
+
+export {addProductController,allProductsCOntroller,singleProduct,updateProduct,deleteProduct,getProductPhotosController,getSinglePhoto,availableProductsController,soldProductsController,handleChatgpt,markAsSold,markAsAvailable,searchProductController,productCountController,productListController,soldListController,soldproductCountController,getAllProductPhotos,singleProductForUpdate,deleteOldSoldProducts,deleteAllProducts}
